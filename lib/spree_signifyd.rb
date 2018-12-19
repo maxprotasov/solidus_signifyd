@@ -19,8 +19,21 @@ module SpreeSignifyd
   end
 
   def set_case_id(order:, case_id:)
+    binding.pry
     if order.signifyd_order_score
       order.signifyd_order_score.update_attributes!(case_id: case_id)
+    else
+      # If we have a caseId we can expect to have a score so this should
+      # not happen. If that's the case we simply fail without raising an
+      # exception.
+      return false
+    end
+  end
+
+  def set_case_disposition(order:, case_disposition:)
+    binding.pry
+    if order.signifyd_order_score
+      order.signifyd_order_score.update_attributes!(case_disposition: case_disposition)
     else
       # If we have a caseId we can expect to have a score so this should
       # not happen. If that's the case we simply fail without raising an

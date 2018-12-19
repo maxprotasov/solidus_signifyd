@@ -11,6 +11,7 @@ module Spree::Api::SpreeSignifyd
     def update
       SpreeSignifyd.set_score(order: @order, score: score)
       SpreeSignifyd.set_case_id(order: @order, case_id: case_id)
+      SpreeSignifyd.set_case_disposition(order: @order, case_disposition: case_disposition)
 
       if is_fraudulent?
         @order.cancel!
@@ -62,5 +63,10 @@ module Spree::Api::SpreeSignifyd
     def case_id
       body['caseId']
     end
+
+    def case_disposition
+      body['guaranteeDisposition']
+    end
+
   end
 end

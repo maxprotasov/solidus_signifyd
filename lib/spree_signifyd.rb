@@ -19,7 +19,6 @@ module SpreeSignifyd
   end
 
   def set_case_id(order:, case_id:)
-    binding.pry
     if order.signifyd_order_score
       order.signifyd_order_score.update_attributes!(case_id: case_id)
     else
@@ -31,7 +30,6 @@ module SpreeSignifyd
   end
 
   def set_case_disposition(order:, case_disposition:)
-    binding.pry
     if order.signifyd_order_score
       order.signifyd_order_score.update_attributes!(case_disposition: case_disposition)
     else

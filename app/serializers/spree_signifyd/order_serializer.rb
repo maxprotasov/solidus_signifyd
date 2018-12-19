@@ -44,6 +44,7 @@ module SpreeSignifyd
 
     def build_purchase_information
       {
+        'orderSessionId' => "TireAgent-#{object.number}",
         'browserIpAddress' => object.last_ip_address || "",
         'orderId' => object.number,
         'createdAt' => object.completed_at.utc.iso8601,

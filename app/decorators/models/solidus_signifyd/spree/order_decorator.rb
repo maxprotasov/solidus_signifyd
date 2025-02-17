@@ -1,4 +1,4 @@
-module Models::SolidusSignifyd::Spree::OrderDecorator
+module SolidusSignifyd::Spree::OrderDecorator
   def self.prepended(base)
     base.include SolidusSignifyd::OrderConcerns
   end

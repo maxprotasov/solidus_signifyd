@@ -1,4 +1,4 @@
-module Models::SolidusSignifyd::Spree::ShipmentDecorator
+module SolidusSignifyd::Spree::ShipmentDecorator
   def determine_state(order)
     return 'pending' if pending? && !order.approved?
     super(order)
